@@ -1,0 +1,288 @@
+/* ============================================= */
+/* ESTILOS PRINCIPALES DEL SIDEBAR */
+/* ============================================= */
+
+.sidebar {
+  width: 250px;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #E07A5F, #C56A50);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1030;
+  transition: all 0.3s ease;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+/* ============================================= */
+/* CONTENIDO PRINCIPAL */
+/* ============================================= */
+
+#content {
+  margin-left: 250px;
+  transition: all 0.3s ease;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* ============================================= */
+/* HEADER DEL SIDEBAR */
+/* ============================================= */
+
+.sidebar-header {
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+.sidebar-header h3 {
+  color: white;
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+/* ============================================= */
+/* MENÚ Y SUBMENÚS */
+/* ============================================= */
+
+.sidebar-menu {
+  padding: 15px 0;
+}
+
+.sidebar-menu .nav {
+  flex-direction: column;
+  padding: 0 15px;
+}
+
+.sidebar-menu .nav-link {
+  color: white !important;
+  padding: 12px 15px !important;
+  margin: 2px 0;
+  border-radius: 4px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-menu .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.sidebar-menu .nav-link.active {
+  border-left: 3px solid white !important;
+  background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.sidebar-menu .nav-link i {
+  margin-right: 10px;
+  width: 20px;
+  text-align: center;
+}
+
+/* Submenús */
+.sidebar-menu .collapse {
+  margin-top: 5px;
+}
+
+.sidebar-menu .submenu .nav-link {
+  padding-left: 30px !important;
+  font-size: 0.9rem;
+}
+
+/* ============================================= */
+/* BOTÓN DE TOGGLE */
+/* ============================================= */
+
+#sidebarCollapse {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1100; /* Mayor que el sidebar */
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #E07A5F;
+  border-color: #C56A50;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+#sidebarCollapse:hover {
+  background-color: #C56A50 !important;
+  transform: scale(1.05);
+}
+
+#sidebarCollapse i {
+  margin: 0;
+}
+
+/* Posición cuando sidebar está abierto */
+.sidebar.active ~ #content #sidebarCollapse {
+  left: 270px; /* 250px + 20px margen */
+}
+
+/* ============================================= */
+/* OVERLAY PARA MÓVILES */
+/* ============================================= */
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1020;
+  display: none;
+}
+
+.sidebar.active + .sidebar-overlay {
+  display: block;
+}
+
+/* ============================================= */
+/* ESTILOS RESPONSIVE */
+/* ============================================= */
+
+@media (max-width: 992px) {
+  .sidebar {
+      left: -250px;
+  }
+  
+  .sidebar.active {
+      left: 0;
+  }
+  
+  #content {
+      margin-left: 0 !important;
+  }
+  
+  #sidebarCollapse {
+      display: flex !important;
+  }
+  
+  /* Asegura que el botón esté visible cuando el sidebar está abierto */
+  .sidebar.active ~ #content #sidebarCollapse {
+      left: 270px;
+      z-index: 1100;
+  }
+}
+
+/* ============================================= */
+/* BOTÓN DE CERRAR EN MÓVILES */
+/* ============================================= */
+
+#sidebarClose {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+/* ============================================= */
+/* AJUSTES PARA DATATABLES Y OTROS COMPONENTES */
+/* ============================================= */
+
+/* Asegura que los modales aparezcan sobre el sidebar */
+.modal {
+  z-index: 1060 !important;
+}
+
+/* Ajusta el padding superior para el botón */
+@media (max-width: 992px) {
+  .container-fluid {
+      padding-top: 70px;
+  }
+}
+
+
+
+
+
+
+.btn-primary {
+    background-color: #a1000d;
+}
+.btn-primary:hover {
+    background-color: #c00010;
+    transform: scale(1.02);
+    box-shadow: 3px 2px 0px 1px rgb(69 1 1 / 81%);
+
+}
+.btn-primary:active {
+    background-color: #a1000d !important;
+    transform: scale(0.95) !important;
+    box-shadow: inset 2px 3px 16px 1px rgb(69 1 1 / 81%)
+}
+
+.btn-secondary {
+    background-color: #a1000d;
+}
+.btn-secondary:hover {
+    background-color: #c00010;
+    transform: scale(1.02);
+    box-shadow: 3px 2px 0px 1px rgb(69 1 1 / 81%);
+
+}
+.btn-secondary:active {
+    background-color: #a1000d !important;
+    transform: scale(0.95) !important;
+    box-shadow: inset 2px 3px 16px 1px rgb(69 1 1 / 81%)
+}
+
+.text-primary{
+    color: #a1000d !important;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 1.5em;
+}
+
+.card-header{
+    display: flex;
+}
+.btn-register{
+    width: 100%;
+    text-align: right;
+}
+
+
+.progress-container {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.progress {
+  height: 10px;
+  margin-bottom: 5px;
+}
+
+.step {
+  min-height: 300px;
+}
+
+.form-check.form-switch {
+  margin-bottom: 1rem;
+}
+
+.is-invalid {
+  border-color: #dc3545;
+}
+
+.badge {
+  font-size: 0.7em;
+  vertical-align: middle;
+}
+
+.residente-form, .mascota-form, .vehiculo-form {
+  background-color: #f8f9fa;
+}
