@@ -139,3 +139,18 @@ function deleteApartment(){
         }
     }
 }
+function obtenerIdApartamento() {
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $torre = $_POST['torre'];
+        $apartamento = $_POST['apto'];
+        $apartamento = apartmentModel::getApartmentById($torre, $apartamento);
+        if ($apartamento) {
+            echo json_encode($apartamento);
+        } else {
+            echo json_encode([
+                'status' => 'error',
+                'message' => 'No se encontró el apartamento.'
+            ]);
+        }
+    }
+}

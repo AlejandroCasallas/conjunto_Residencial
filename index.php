@@ -24,6 +24,9 @@ switch ($route) {
     case '/apartamentos':
         include 'App/Views/apartamentos.php';
         break;
+    case '/novedades':
+        include 'App/Views/novedades.php';
+        break;
 
     // funciones tipo API
     case '/getApartaments':
@@ -38,6 +41,10 @@ switch ($route) {
     case '/deleteApartment':
         include 'App/Controllers/apartment-controller.php';
         deleteApartment();
+        break;
+    case '/obtenerIdApartamento':
+        include 'App/Controllers/apartment-controller.php';
+        obtenerIdApartamento();
         break;
 
     default:

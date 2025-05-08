@@ -19,6 +19,24 @@ class apartmentModel{
             $conexion->cerrarConexion($con);
         }
     }
+    public static function getApartmentById($torre , $apartamento){
+        try {
+            $conexion = new Conexion();
+            $con = $conexion->getConexion();
+            $traer_apartamento = "SELECT * from apartamento where torre = :torre and apartamento = :apartamento";
+            $stmt = $con->prepare($traer_apartamento);
+            $stmt->bindParam(':torre', $torre);
+            $stmt->bindParam(':apartamento', $apartamento);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+            return false;
+        } finally {
+            $conexion->cerrarConexion($con);
+        }
+    }
+
     public static function postApartment($data) {
         $conn = null;
         try {
